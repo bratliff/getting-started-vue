@@ -1,6 +1,13 @@
-var app = new Vue({
-  el: '#app',
+var app3 = new Vue({
+  el: '#app-3',
   data: {
-    message: 'Hello World'
+    seen: true
+  }
+})
+
+var toggler = new Vue({
+  el: '#demo',
+  data: {
+    show: true
   }
 })

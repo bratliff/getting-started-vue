@@ -1,79 +1,19 @@
-var vm = new Vue({
-  el: '#example',
+var binding = new Vue({
+  el: '#app',
   data: {
-    message: 'Hello'
-  },
-  computed: {
-    // a computed getter
-    reversedMessage: function () {
-      // `this` points to the vm instance
-      return this.message.split('').reverse().join('')
+      isActive: true,
+      hasError: true
     }
-  }
 })
 
-var updater = new Vue({
-  el: '#demo',
-  data: {
-    firstName: 'Foo',
-    lastName: 'Barre'
-  },
-  computed: {
-  fullName: {
-    // getter
-    get: function () {
-      return this.firstName + ' ' + this.lastName
-    },
-    // setter
-    set: function (newValue) {
-      var names = newValue.split(' ')
-      this.firstName = names[0]
-      this.lastName = names[names.length - 1]
-    }
-  }
-}
-})
+/* OR.... */
 
-var watchExampleVM = new Vue({
-  el: '#watch-example',
+var binding2 = new Vue({
+  el: '#app2',
   data: {
-    question: '',
-    answer: 'I cannot give you an answer until you ask a question!'
-  },
-  watch: {
-    // whenever question changes, this function will run
-    question: function (newQuestion) {
-      this.answer = 'Waiting for you to stop typing...'
-      this.getAnswer()
-    }
-  },
-  methods: {
-    // _.debounce is a function provided by lodash to limit how
-    // often a particularly expensive operation can be run.
-    // In this case, we want to limit how often we access
-    // yesno.wtf/api, waiting until the user has completely
-    // finished typing before making the ajax request. To learn
-    // more about the _.debounce function (and its cousin
-    // _.throttle), visit: https://lodash.com/docs#debounce
-    getAnswer: _.debounce(
-      function () {
-        var vm = this
-        if (this.question.indexOf('?') === -1) {
-          vm.answer = 'Questions usually contain a question mark. ;-)'
-          return
+        classObject: {
+            active: true,
+            'text-danger': false
         }
-        vm.answer = 'Thinking...'
-        axios.get('https://yesno.wtf/api')
-          .then(function (response) {
-            vm.answer = _.capitalize(response.data.answer)
-          })
-          .catch(function (error) {
-            vm.answer = 'Error! Could not reach the API. ' + error
-          })
-      },
-      // This is the number of milliseconds we wait for the
-      // user to stop typing.
-      500
-    )
-  }
+    }
 })

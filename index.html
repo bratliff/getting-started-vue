@@ -22,22 +22,21 @@
         </div>
     </nav>
     <div class="container">
-        <h2>Computed Properties</h2>
-        <div id="example">
-            <p>Original message: "{{ message }}"</p>
-            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        <h2>Class and Style Bindings (inline)</h2>
+        <div id="app">
+            <div class="static"
+                 v-bind:class="{ active: isActive, 'text-danger': hasError }">
+                 <h5>Observe in console to see classes being applied</h5>
+            </div>
         </div>
-        <h2>Computed Property instead of Watcher</h2>
-        <div id="demo">{{ fullName }}</div>
-        <h2>Using a Watcher for Big Loads</h2>
-        <div id="watch-example">
-          <p>
-            Ask a yes/no question:
-            <input v-model="question">
-          </p>
-          <p>{{ answer }}</p>
+        <h2>Class and Style Bindings</h2>
+        <div id="app2">
+            <div v-bind:class="classObject">
+                <h5>Observe in console to see classes being applied</h5>
+            </div>
         </div>
-    </div>
+
+    </div> <!-- end of container div -->
 
     <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
     <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>

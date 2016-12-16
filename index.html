@@ -23,52 +23,56 @@
     </nav>
 
     <div class="container">
+        <form id="demo">
+            <!-- text -->
+            <p>
+                <input type="text" v-model="msg"> {{msg}}
+            </p>
+            <!-- checkbox -->
+            <p>
+                <input type="checkbox" v-model="checked"> {{checked ? "yes" : "no"}}
+            </p>
+            <!-- radio buttons -->
+            <p>
+                <input type="radio" name="picked" value="one" v-model="picked">
+                <input type="radio" name="picked" value="two" v-model="picked"> {{picked}}
+            </p>
+            <!-- select -->
+            <p>
+                <select v-model="selected">
+                <option>one</option>
+                <option>two</option>
+              </select> {{selected}}
+                        </p>
+                        <!-- multiple select -->
+              <hr />
+                        <p>
+                            <select v-model="multiSelect" multiple>
+                <option>one</option>
+                <option>two</option>
+                <option>three</option>
+              </select> {{multiSelect}}
+                        </p>
+            <p>Enter Age</p>
+            <input v-model="age" type="number">
+            <p>Your age is {{ age }}</p>
+            <hr />
+            <p><span>Multiline message is:</span>
+            <p style="white-space: pre">{{ message }}</p>
+            <textarea v-model="message" placeholder="add multiple lines"></textarea></p>
+            <hr />
+            <p>
+              <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+              </p>
+            <span>Checked names: {{ checkedNames }}</span>
+            <p><pre>data: {{$data}}</pre></p>
 
-        <h2>Simple Event Button</h2>
-        <div id="example-1">
-            <button @click="counter += 1">Add 1</button>
-            <p>The button above has been clicked {{ counter }} times.</p>
-        </div>
-
-        <h2>Simple Method Call Button</h2>
-        <div id="example-2">
-          <!-- `greet` is the name of a method defined below -->
-          <button v-on:click="greet">Greet</button>
-        </div>
-
-          <h2>Inline Event Button</h2>
-
-          <div id="example-3">
-            <button v-on:click="say('hi')">Say hi</button>
-            <button v-on:click="say('what')">Say what</button>
-          </div>
-
-          <h2>Event Modifiers</h2>
-
-          <!-- the submit event will no longer reload the page -->
-          <form v-on:submit.prevent="onSubmit"></form>
-          <!-- modifiers can be chained -->
-          <a v-on:click.stop.prevent="doThat"></a>
-          <!-- just the modifier -->
-          <form v-on:submit.prevent></form>
-          <!-- use capture mode when adding the event listener -->
-          <div v-on:click.capture="doThis">...</div>
-          <!-- only trigger handler if event.target is the element itself -->
-          <!-- i.e. not from a child element -->
-          <div v-on:click.self="doThat">...</div>
-
-            <h2>Keypress Events</h2>
-          <div id="keypress">
-            Press the tab key:
-            <input @keyup.tab.prevent="say">
-          </div>
-
-          <h2>Modifier keypress</h2>
-        <div id="modifier">
-          <p>Shift + Click for a different result:</p>
-          <p><button @click.shift="control">Do something</button></p>
-        </div>
-
+        </form>
 
     </div>
     <!-- end container -->

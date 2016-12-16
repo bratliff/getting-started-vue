@@ -1,18 +1,24 @@
-var app3 = new Vue({
-  el: '#app-3',
-  data: {
-    seen: true
-    },
-    methods: {
-        hideIt: function() {
-            this.seen = false;
-        }
-    }
-})
 
 var toggler = new Vue({
   el: '#demo',
   data: {
-    show: true
+    ok: true
+  },
+  methods: {
+    changestatus : function() {
+      this.ok = !this.ok;
+    }
+  }
+})
+
+var show = new Vue({
+  el: '#demo2',
+  data: {
+    ok: true
+  },
+  methods: {
+    changestatus : function() {
+      this.ok = !this.ok;
+    }
   }
 })

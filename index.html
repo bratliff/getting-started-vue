@@ -20,18 +20,21 @@
       </div>
     </nav>
 
-    <div id="app-3">
-      <a v-if="seen" @click="hideIt">Now you see me</a>
+  <div class="container">
+
+    <h2>Conditional Rendering (if)</h2>
+    <div id="demo" v-on:click="changestatus">
+      <h4 v-if="ok">Yes</h4>
+      <h4 v-else>No</h4>
     </div>
 
-    <div id="demo">
-      <button v-on:click="show = !show">
-        Toggle
-      </button>
-      <transition name="fade">
-        <p v-if="show">hello</p>
-      </transition>
+    <h2>Conditional Rendering (show)</h2>
+    <div id="demo2">
+      <h4 v-show="ok">Yes</h4>
+      <button v-on:click="changestatus">Change</button>
     </div>
+
+  </div>
 
     <script id="__bs_script__">//<![CDATA[
         document.write("<script async src='http://HOST:3002/browser-sync/browser-sync-client.js?v=2.18.5'><\/script>".replace("HOST", location.hostname));

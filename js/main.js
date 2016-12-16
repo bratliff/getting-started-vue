@@ -13,7 +13,7 @@ var binding2 = new Vue({
   data: {
         classObject: {
             active: true,
-            'text-danger': false
+            'text-danger': true
         }
     }
 })
